@@ -39,4 +39,7 @@ I as a waiter/waitress want to see the orders that are ready to be delivered qui
 ## Demo:
 [Take a look here](https://vimeo.com/745017402)
 
+![193935193-cbc6c090-1a7b-4550-9282-f58957f661d7](https://user-images.githubusercontent.com/102160078/194647832-e754ab68-97b1-44a1-90cf-3514e5ffc41e.gif)
+
+
 
