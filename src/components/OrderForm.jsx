@@ -16,7 +16,6 @@ const OrderForm = () => {
   const { headers } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
 
-  //CREATING ORDER
   const newOrder = (arr) => {
     const obj = {
       table: table,
@@ -28,22 +27,18 @@ const OrderForm = () => {
       itemObj.menuItemId = arr[i].id;
       itemObj.count = arr[i].count;
       obj.items.push(itemObj);
-      console.log(obj);
     }
     setOrder(obj);
     sendOrder(obj);
     clearOrder();
-    //console.log(order, "is this cleaning?")
   };
 
-  //SENDING ORDER
   const sendOrder = async (order) => {
     try {
       const resp = await axios.post(
         'https://burgerqueen.barrenechea.cl/orders', 
         order, { headers }
       );
-      //console.log(resp.data);
       MySwal.fire({
         title: <strong>Your order was successfully submitted!</strong>,
         icon: 'success',
@@ -57,7 +52,6 @@ const OrderForm = () => {
     }
   };
 
-  //CLEANING COMPONENT
   const clearOrder = () => {
     setSelected([]);
     setCustomer('');
@@ -65,7 +59,6 @@ const OrderForm = () => {
     setOrder([]);
   };
 
-  //PRICE DETAILS
   let tip;
   let subTotal;
   const priceOrder = () => {

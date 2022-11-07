@@ -6,7 +6,6 @@ export const SelectionProvider = ({ children }) => {
   const [selected, setSelected] = useState([]);
   const [count, setCount] = useState(0);
 
-  //ADD DISH
   const addDish = product => {
     const isDishPresent = selected.some(item => item.id === product.id);
     if (isDishPresent) {
@@ -22,7 +21,6 @@ export const SelectionProvider = ({ children }) => {
     }
   };
 
-  //REMOVE DISH
   const removeDish = product => {
     const isDishPresent = selected.some(item => item.id === product.id);
     if (isDishPresent) {
@@ -38,7 +36,6 @@ export const SelectionProvider = ({ children }) => {
     } 
   };
 
-  //DELETE DISH
   const deleteDish = id => {
     setSelected(selected.filter(item => item.id !== id));
   };

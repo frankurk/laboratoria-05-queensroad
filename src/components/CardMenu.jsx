@@ -14,16 +14,14 @@ const CardMenu = ({ category }) => {
     const getMenu = async () => {
       try {
         const menuFromApi = await fetchMenu();
-        //console.log(menuFromApi, 'menufrom api');
         setMenu(menuFromApi);
       } catch (err) {
-        console.log(err, 'error getting data');
+        alert(err, 'error getting data');
       }
     };
     getMenu();
   }, []);
 
-  // FETCHING MENU DATA
   const fetchMenu = async () => {
     try {
       let res = await axios.get('https://burgerqueen.barrenechea.cl/menu', {
@@ -34,16 +32,15 @@ const CardMenu = ({ category }) => {
       return data;
     } catch (err) {
       if (err.response) {
-        console.log(err.response.status);
-        console.log(err.response.data);
+        alert(err.response.status);
+        alert(err.response.data);
       }
     }
   };
 
-  //FILTERING CATEGORY (BREAKFAST, LUNCH, ETC)
   const filteredMenu = menu
     ? menu.menu.filter(item => item.type === category)
-    : console.log('error fetching menu');
+    : alert('Error fetching menu');
 
   return (
     <div className="cardmenu-container">

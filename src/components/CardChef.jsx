@@ -15,7 +15,7 @@ const ChefCard = ({ status }) => {
         const orderFromApi = await fetchOrder();
         setOrderApi(orderFromApi);
       } catch (err) {
-        console.log(err, 'error getting data');
+        alert(err, 'Error getting data');
       }
     };
     getOrder();
@@ -28,7 +28,6 @@ const ChefCard = ({ status }) => {
     };
   }, []);
 
-  //FETCHING ORDERS
   const fetchOrder = async () => {
     const config = {
       params: { status: status, includeItems: true },
@@ -43,13 +42,12 @@ const ChefCard = ({ status }) => {
       return data;
     } catch (err) {
       if (err.response) {
-        console.log(err.response.status);
-        console.log(err.response.data);
+        alert(err.response.status);
+        alert(err.response.data);
       }
     }
   };
 
-  // PUT REQUEST COMPLETED
   const UpdateOrderStatus = async id => {
     try {
       const res = await axios.put(
@@ -60,11 +58,10 @@ const ChefCard = ({ status }) => {
         { headers }
       );
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
-  // PUT REQUEST VISIBLE
   const UpdateOrderHidden = async id => {
     try {
       const res = await axios.put(
@@ -76,7 +73,7 @@ const ChefCard = ({ status }) => {
         { headers }
       );
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
